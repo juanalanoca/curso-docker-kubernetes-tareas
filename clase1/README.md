@@ -19,7 +19,7 @@ a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6
 
 
 ### 2. Verificar que está corriendo
-	## 2.1. comandos
+#### 2.1. comandos
 docker ps
 
 
