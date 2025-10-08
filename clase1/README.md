@@ -36,7 +36,7 @@ Accedí a `http://localhost:8080` y obtuve:
 
 ## Conclusiones
 
-Aprendí a ejecutar containers en segundo plano y mapear puertos. Tuve una dificultad inicial con el puerto 8080 ocupado, lo resolví usando el puerto 8081 en su lugar, tambien funcionó matando el pid que usaba otro proceso con ese puerto.
+Aprendí a realizar una estructura en github para lo requerido ademas de recordar instrucciones para realizar la tarea
 
 
 
@@ -84,4 +84,80 @@ Accedí a `http://localhost:8080` y obtuve:
 ## Conclusiones
 
 Aprendí a ejecutar containers en segundo plano y mapear puertos. Tuve una dificultad inicial con el puerto 8080 ocupado, lo resolví usando el puerto 8081 en su lugar, tambien funcionó matando el pid que usaba otro proceso con ese puerto.
+
+
+
+
+## Tarea 1 - Configuración de Repositorio y Primer Desafío
+## Parte 2: Desafío Técnico con Docker
+Explora diferentes aplicaciones desplegadas con Docker.
+##Aplicación elegida: Apache HTTP Server (httpd)
+
+#### 2.1. comandos
+despliegue container
+docker run -d --name mi-apache -p 8081:80 httpd
+VERIFICACION
+# Listar containers en ejecución
+docker ps
+
+# Ver logs del container
+docker logs mi-apache
+
+# Acceder al servicio (abrir el navegador)
+http://localhost:8081
+
+
+LIMPIEZA:
+
+
+# Detener el container
+docker stop mi-apache
+
+# Eliminar el container
+docker rm mi-apache
+
+# Verificar eliminación
+docker ps -a
+
+Explicación de flags del comando docker run
+
+-d: Ejecuta el container en modo “detached” (segundo plano)
+
+--name mi-apache: Asigna el nombre “mi-apache” al container
+
+-p 8081:80: Mapea el puerto 8081 del host al puerto 80 del container
+
+httpd: Especifica la imagen a utilizar
+
+####
+
+
+**Screenshot:**
+### 1. Container corriendo
+![Container corriendo](screenshots/comandos_usados2.png)
+
+### 2. Acceso desde navegador
+
+Accedí a `http://localhost:8080` y obtuve:
+
+![Nginx funcionando](screenshots/image.png)
+
+### 3. Container eliminado
+
+Accedí a `http://localhost:8080` y obtuve:
+
+![Nginx funcionando](screenshots/image.png)
+
+
+## Conclusiones
+
+Aprendí cómo desplegar rápidamente un servidor web usando Docker
+
+Comprendí la importancia del mapeo de puertos para acceder a los servicios
+
+La documentación fue útil para recordar los comandos exactos
+
+La única dificultad fue recordar que el puerto del container (80 para httpd) es diferente al puerto del host (8081), pero los logs del container ayudaron a confirmar que estaba funcionando correctamente
+
+
 
