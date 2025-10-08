@@ -36,4 +36,4 @@ Accedí a `http://localhost:8080` y obtuve:
 
 ## Conclusiones
 
-Aprendí a ejecutar containers en segundo plano y mapear puertos. Tuve una dificultad inicial con el puerto 8080 ocupado, lo resolví usando el puerto 8081 en su lugar.
+Aprendí a ejecutar containers en segundo plano y mapear puertos. Tuve una dificultad inicial con el puerto 8080 ocupado, lo resolví usando el puerto 8081 en su lugar, tambien funcionó matando el pid que usaba otro proceso con ese puerto.
