@@ -9,18 +9,18 @@ Aplicación Node.js con Express como ejemplo.
 ### Parte 1: Crear una Aplicación Node.js
 Vamos a desarrollar una aplicación simple con 2 endpoints y configuración de puerto. 
 
-##. 1 Estructura del Proyecto
+## 1 Estructura del Proyecto
 Crea una carpeta para el proyecto:
 
 mkdir node-docker-app && cd node-docker-app
 
-##.  2. Inicializar Node.js
+##  2. Inicializar Node.js
 Ejecuta: 
 npm init -y
 
-##.  3. Instalar Express
+##  3. Instalar Express
 npm install express
-##.  4. Crear el Archivo app.js
+##  4. Crear el Archivo app.js
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -61,6 +61,7 @@ app.listen(PORT, () => {
 ##Servidor node corriendo en consola
 
 ![servidor_node_correindo_consola](screenshots/servidor_node_corriendo_web.png)
+
 
 
 
