@@ -15,7 +15,7 @@ docker run -d -p 8080:80 --name mi-servidor-web nginx
 
 **Salida:**
 
-a1b2c3d4e5f6g7h8i9j0k1l2m3n4o5p6
+0d69701218edb734969b46cb002472860397196f8972545b664442a7693c7fb3
 
 
 ### 2. Verificar que está corriendo
@@ -33,7 +33,6 @@ Accedí a `http://localhost:8080` y obtuve:
 
 ![Nginx funcionando](screenshots/nginx-browser.png)
 
-[... continúa con el resto]
 
 ## Conclusiones
 
