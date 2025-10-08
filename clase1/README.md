@@ -31,7 +31,7 @@ docker ps
 
 Accedí a `http://localhost:8080` y obtuve:
 
-![Nginx funcionando](screenshots/nginx-browser.png)
+![Nginx funcionando](clase1/screenshots/nginx_localhost_8080.png)
 
 
 ## Conclusiones
