@@ -25,7 +25,7 @@ docker ps
 
 **Screenshot:**
 
-![Container corriendo](screenshots/docker-ps.png)
+![Container corriendo](clase1/screenshots/nginx_local_host8080web.png)
 
 ### 3. Acceder desde el navegador
 
