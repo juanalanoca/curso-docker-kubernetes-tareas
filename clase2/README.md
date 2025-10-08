@@ -50,10 +50,14 @@ app.listen(PORT, () => {
 
 ![Container corriendo](screenshots/inicio_node.png)
 
-![Container corriendo](screenshots/inicio_node.png)
+#muestra que la pagina muestra un mensaje en formato json
+![mensaje_corriendo_json](screenshots/servidor_corriendoweb_json.png)
 
-![Container corriendo](screenshots/inicio_node.png)
+#corriendo app.js
+![Container corriendo_consola_app_js](screenshots/servidor_node_appjs_corriendo_consola.png)
 
-![Container corriendo](screenshots/inicio_node.png)
+#Servidor node corriendo en consola
+![servidor_node_correindo_consola](screenshots/servidor_node_corriendo_web.png)
+
 
 
