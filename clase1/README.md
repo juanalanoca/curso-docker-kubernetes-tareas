@@ -72,13 +72,13 @@ git push origin main
 
 **Screenshot:**
 
-![Container corriendo](screenshots/nginx_local_host8080web.png)
+![Container corriendo](screenshots/comandos_usados2.png)
 
 ### 3. Acceder desde el navegador
 
 Accedí a `http://localhost:8080` y obtuve:
 
-![Nginx funcionando](screenshots/nginx_localhost_8080.png)
+![Nginx funcionando](screenshots/image.png)
 
 
 ## Conclusiones
