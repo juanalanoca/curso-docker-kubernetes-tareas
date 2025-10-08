@@ -48,5 +48,12 @@ app.listen(PORT, () => {
 
 **Screenshot:**
 
-![Container corriendo](screenshots/nginx_local_host8080web.png)
+![Container corriendo](screenshots/inicio_node.png)
+
+![Container corriendo](screenshots/inicio_node.png)
+
+![Container corriendo](screenshots/inicio_node.png)
+
+![Container corriendo](screenshots/inicio_node.png)
+
 
