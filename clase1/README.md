@@ -134,19 +134,17 @@ httpd: Especifica la imagen a utilizar
 
 **Screenshot:**
 ### 1. Container corriendo
-![Container corriendo](screenshots/comandos_usados2.png)
+![Container corriendo](screenshots/tarea2 apache.png)
 
 ### 2. Acceso desde navegador
 
-Accedí a `http://localhost:8080` y obtuve:
+Accedí a `http://localhost:8081` y obtuve:
 
-![Nginx funcionando](screenshots/image.png)
+![web](screenshots/ver_web_apache.png)
 
-### 3. Container eliminado
+### 3. Container logs
 
-Accedí a `http://localhost:8080` y obtuve:
-
-![Nginx funcionando](screenshots/image.png)
+![log](screenshots/logs_apache.png)
 
 
 ## Conclusiones
