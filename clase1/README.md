@@ -25,13 +25,13 @@ docker ps
 
 **Screenshot:**
 
-![Container corriendo](clase1/screenshots/nginx_local_host8080web.png)
+![Container corriendo](screenshots/nginx_local_host8080web.png)
 
 ### 3. Acceder desde el navegador
 
 Accedí a `http://localhost:8080` y obtuve:
 
-![Nginx funcionando](clase1/screenshots/nginx_localhost_8080.png)
+![Nginx funcionando](screenshots/nginx_localhost_8080.png)
 
 
 ## Conclusiones
