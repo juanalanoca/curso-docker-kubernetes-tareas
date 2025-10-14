@@ -60,6 +60,10 @@ Para levantar y probar la aplicación:
     docker compose logs -f
     ```
 
+    **Screenshot:**
+
+![Container corriendo](screenshots/compoose_up.png)
+
 5.  **Acceder a la aplicación:**
     Abre tu navegador web y visita: `http://localhost:8080`
     Aquí verás el frontend del blog.
