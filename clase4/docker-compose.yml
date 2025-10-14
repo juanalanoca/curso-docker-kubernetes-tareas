@@ -1,0 +1,71 @@
+
+
+services:
+  gateway:
+    build: ./gateway
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./gateway/nginx.conf:/etc/nginx/nginx.conf:ro
+    networks:
+      - microservices-net
+    depends_on:
+      - service1
+      - frontend
+
+  service1: # API Posts
+    build: ./service1
+    ports:
+      - "5000" # Exponer solo internamente
+    environment:
+      # Las variables de entorno serán cargadas desde service1/.env por el Dockerfile
+      # Para Docker Compose, podríamos definirla aquí o usar env_file.
+      # Usaremos env_file para mejor gestión.
+      - MONGO_URI=mongodb://db:27017/blogdb
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+    env_file:
+      - ./service1/.env # Carga variables de entorno desde el archivo .env
+    networks:
+      - microservices-net
+    depends_on:
+      - redis
+      - db
+    restart: on-failure # Reinicia si falla
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "80" # Exponer solo internamente
+    networks:
+      - microservices-net
+   # depends_on:
+    #  - gateway # Aunque el frontend es estático, depende del gateway para servirlo
+
+  redis:
+    image: redis:6.2-alpine
+    ports:
+      - "6379" # Exponer solo internamente
+    volumes:
+      - redis_data:/data # Named volume para persistencia de Redis
+    networks:
+      - microservices-net
+    restart: on-failure
+
+  db: # MongoDB
+    image: mongo:4.4
+    ports:
+      - "27017" # Exponer solo internamente
+    volumes:
+      - mongodb_data:/data/db # Named volume para persistencia de MongoDB
+    networks:
+      - microservices-net
+    restart: on-failure
+
+volumes:
+  redis_data:
+  mongodb_data:
+
+networks:
+  microservices-net:
+    driver: bridge

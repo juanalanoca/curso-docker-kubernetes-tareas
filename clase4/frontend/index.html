@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microservicios Blog</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; background-color: #f4f4f4; }
+        .container { max-width: 800px; margin: auto; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        h1, h2 { color: #333; }
+        form { margin-bottom: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 5px; background-color: #e9e9e9; }
+        form input[type="text"], form textarea { width: calc(100% - 20px); padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        form button { background-color: #28a745; color: white; padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-size: 16px; }
+        form button:hover { background-color: #218838; }
+        .post { border-bottom: 1px solid #eee; padding: 15px 0; }
+        .post:last-child { border-bottom: none; }
+        .post h3 { margin-top: 0; color: #0056b3; }
+        .post p { color: #555; }
+        .post small { color: #888; font-size: 0.8em; }
+        .source-info { font-style: italic; color: #666; margin-bottom: 10px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Microservicios Blog</h1>
+        
+        <h2>Crear Nuevo Post</h2>
+        <form id="createPostForm">
+            <input type="text" id="postTitle" placeholder="Título del post" required><br>
+            <textarea id="postContent" placeholder="Contenido del post" rows="5" required></textarea><br>
+            <button type="submit">Crear Post</button>
+        </form>
+
+        <h2>Posts Publicados</h2>
+        <div id="postsList">
+            <p>Cargando posts...</p>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = '/api/posts'; // El gateway manejará el ruteo
+        const postsList = document.getElementById('postsList');
+        const createPostForm = document.getElementById('createPostForm');
+
+        async function fetchPosts() {
+            try {
+                const response = await fetch(API_URL);
+                const data = await response.json();
+
+                postsList.innerHTML = `<p class="source-info">Fuente de datos: ${data.source.toUpperCase()}</p>`;
+                if (data.data && data.data.length > 0) {
+                    data.data.forEach(post => {
+                        const postElement = document.createElement('div');
+                        postElement.classList.add('post');
+                        postElement.innerHTML = `
+                            <h3>${post.title}</h3>
+                            <p>${post.content}</p>
+                            <small>Publicado el: ${new Date(post.createdAt).toLocaleDateString()}</small>
+                            <small> (ID: ${post._id})</small>
+                        `;
+                        postsList.appendChild(postElement);
+                    });
+                } else {
+                    postsList.innerHTML += '<p>No hay posts aún. ¡Crea uno!</p>';
+                }
+            } catch (error) {
+                console.error('Error al obtener los posts:', error);
+                postsList.innerHTML = '<p>Error al cargar los posts.</p>';
+            }
+        }
+
+        createPostForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const title = document.getElementById('postTitle').value;
+            const content = document.getElementById('postContent').value;
+
+            try {
+                const response = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ title, content })
+                });
+                const data = await response.json();
+                if (response.ok) {
+                    alert('Post creado exitosamente: ' + data.post.title);
+                    document.getElementById('postTitle').value = '';
+                    document.getElementById('postContent').value = '';
+                    postsList.innerHTML = '<p>Cargando posts...</p>'; // Refrescar la lista de posts
+                    fetchPosts(); // Vuelve a cargar los posts para ver el nuevo y verificar la invalidación
+                } else {
+                    alert('Error al crear post: ' + (data.message || response.statusText));
+                }
+            } catch (error) {
+                console.error('Error al crear el post:', error);
+                alert('Error de conexión al crear el post.');
+            }
+        });
+
+        // Cargar posts al iniciar
+        fetchPosts();
+    </script>
+</body>
+</html>
