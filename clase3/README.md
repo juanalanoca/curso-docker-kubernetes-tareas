@@ -20,7 +20,7 @@ Aplicación simple que demuestra el uso de Docker Compose con Nginx sirviendo co
 
 **Screenshot:**
 
-![Container corriendo](screenshots/verificando persiistencia.png)
+![Container corriendo](screenshots/verificandopersiistencia.png)
 
 ## Verificar servicios
 
