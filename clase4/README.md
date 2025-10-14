@@ -37,8 +37,7 @@ Para levantar y probar la aplicación:
 
 1.  **Clonar el repositorio:**
     ```bash
-    git clone https://github.com/tu_usuario/docker-microservicios-clase4.git
-    cd docker-microservicios-clase4
+    
     ```
 
 2.  **Levantar todos los servicios con Docker Compose:**
@@ -52,6 +51,9 @@ Para levantar y probar la aplicación:
     docker compose ps
     ```
     Deberías ver todos los servicios en estado `Up`.
+**Screenshot:**
+
+![Container corriendo](screenshots/docker-compose.png)
 
 4.  **Ver los logs (opcional, para depuración):**
     ```bash
