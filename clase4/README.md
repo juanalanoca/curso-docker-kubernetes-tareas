@@ -1,4 +1,4 @@
-# docker-microservicios-clase4 - Sistema de Blog
+# docker-microservicios-clase4 
 
 ## 1. Título y Descripción
 
