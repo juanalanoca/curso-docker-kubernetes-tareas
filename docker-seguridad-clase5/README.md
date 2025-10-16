@@ -24,7 +24,7 @@
 docker build -t mi-app:baseline .
 ```
 
-![Container corriendo](screenshots/build_myappbaseline.png)
+![Container corriendo](docs/screenshots/build_myappbaseline.png)
 
 ```bash
 scan
@@ -36,4 +36,5 @@ scan
 trivy image
 ```
 ![Container corriendo](screenshots/trivy_image.png)
+
 
