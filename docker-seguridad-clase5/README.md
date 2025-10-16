@@ -21,16 +21,19 @@
 
 
 ```bash
-
-docker images mi-app:baseline
-
+docker build -t mi-app:baseline .
+```
 
 ![Container corriendo](screenshots/build_myappbaseline.png)
 
 ```bash
-
+scan
+```
 ![Container corriendo](screenshots/scaneo_trivy.png)
 
 **Tamaño de imagen:**
-
+```bash
+trivy image
+```
 ![Container corriendo](screenshots/trivy_image.png)
+
