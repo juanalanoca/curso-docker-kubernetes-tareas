@@ -1,0 +1,16 @@
+// src/package.json
+{
+  "name": "my-node-app",
+  "version": "1.0.0",
+  "description": "Una aplicación Node.js simple para demostración de seguridad y optimización Docker.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^6.0.0"
+  },
+  "author": "Tu Nombre",
+  "license": "ISC"
+}
