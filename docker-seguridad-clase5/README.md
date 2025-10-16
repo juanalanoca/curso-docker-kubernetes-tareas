@@ -113,3 +113,80 @@ Aquí puedes añadir detalles sobre las vulnerabilidades que se resolvieron espe
 2.  **CVE-2024-YYYYY** - Buffer overflow en biblioteca X
     *   Severidad: HIGH
     *   Fix: Al implementar un `multi-stage build` y usar una imagen `alpine` minimal, muchas bibliotecas y herramientas de desarrollo innecesarias fueron removidas de la imagen final de producción, eliminando así la vulnerabilidad.
+
+
+
+
+```bash
+docker build -t mi-app:baseline .
+```
+
+![Container corriendo](docs/screenshots/build_myappbaseline.png)
+
+```bash
+scan
+```
+![Container corriendo](docs/screenshots/scaneo_trivy.png)
+
+**Tamaño de imagen:**
+```bash
+trivy image
+```
+![Container corriendo](docs/screenshots/trivy_image.png)
+
+
+
+## . Probar Imagen Optimizada
+
+Para desplegar y verificar la aplicación optimizada, sigue los siguientes pasos:
+
+1.  **Clonar repositorio**
+    ```bash
+    cd docker-seguridad-clase5
+    ```
+
+2.  **Construir imagen optimizada**
+    ```bash
+    docker build -t mi-app:optimizado .
+    ```
+
+3.  **Escanear con Trivy (Opcional, si no lo hiciste antes)**
+    ```bash
+    trivy image mi-app:optimizado
+    # Para guardar el reporte en mi directorio
+    trivy image -f json -o scans/optimizado-scan.json mi-app:optimizado
+    ```
+
+4.  **Levantar servicios**
+    ```bash
+    docker compose up -d
+    ```
+    
+**screenshots:**
+![Container corriendo](docs/screenshots/docker_comppose_up.png)
+
+5.  **Verificar salud de la aplicación**
+    *   Verificar que los contenedores están funcionando y el `health check` es positivo:
+        ```bash
+        docker ps
+        ```
+    *   Verificar que la aplicación responde:
+        ```bash
+        curl http://localhost:3000/
+        curl http://localhost:3000/health
+        ```
+**screenshots:**
+![Container corriendo](docs/screenshots/curl_3000.png)
+
+6.  **Verificar usuario non-root**
+    Obtén el ID o nombre del contenedor de la aplicación:
+    ```bash
+    docker ps
+    ```
+    Luego, ejecuta:
+    ```bash
+    docker exec <ID_o_nombre_del_contenedor_de_app> whoami
+    # Debería mostrar 'appuser'
+    ```
+**screenshots:**
+![Container corriendo](docs/screenshots/docker_ps_appusser.png)
