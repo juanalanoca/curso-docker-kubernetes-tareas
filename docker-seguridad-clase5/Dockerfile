@@ -1,7 +1,7 @@
-# Dockerfile (Baseline - antes de optimizar)
 FROM node:18
 WORKDIR /app
-COPY package*.json ./
+COPY src/package*.json ./
 RUN npm install
-COPY . .
+COPY src/. .
+EXPOSE 3000
 CMD ["npm", "start"]

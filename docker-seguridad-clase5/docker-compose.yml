@@ -1,6 +1,4 @@
-# docker-compose.yml
 version: '3.8'
-
 services:
   app:
     build:
@@ -8,8 +6,6 @@ services:
       dockerfile: Dockerfile
     ports:
       - "3000:3000"
-    environment:
-      MONGO_URI: mongodb://mongodb:27017/mydatabase
     depends_on:
       - mongodb
     healthcheck:
@@ -18,7 +14,6 @@ services:
       timeout: 3s
       retries: 3
       start_period: 30s
-
   mongodb:
     image: mongo:6
     ports:
