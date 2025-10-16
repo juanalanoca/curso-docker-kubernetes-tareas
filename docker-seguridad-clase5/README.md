@@ -19,6 +19,18 @@
 
 ### Análisis de Línea Base
 
-**Tamaño de imagen:**
+
 ```bash
+
 docker images mi-app:baseline
+
+
+![Container corriendo](screenshots/build_myappbaseline.png)
+
+```bash
+
+![Container corriendo](screenshots/scaneo_trivy.png)
+
+**Tamaño de imagen:**
+
+![Container corriendo](screenshots/trivy_image.png)
