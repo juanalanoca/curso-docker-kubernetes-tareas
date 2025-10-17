@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webapp-deployment
+  labels:
+    app: webapp
+    env: homework
+spec:
+  replicas: 3 # Mínimo 3 réplicas
+  selector:
+    matchLabels:
+      app: webapp # Selector para los Pods
+  template:
+    metadata:
+      labels:
+        app: webapp
+        env: homework
+    spec:
+      containers:
+      - name: nginx # Nombre del contenedor
+        image: nginx:alpine # Imagen elegida
+        ports:
+        - containerPort: 80 # Puerto que expone Nginx
