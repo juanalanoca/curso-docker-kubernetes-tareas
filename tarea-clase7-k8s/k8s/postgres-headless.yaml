@@ -1,0 +1,14 @@
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-headless
+  namespace: tarea-clase7
+spec:
+  clusterIP: None # Esto lo convierte en un Headless Service
+  selector:
+    app: postgres # Este selector debe coincidir con las etiquetas del StatefulSet
+  ports:
+  - port: 5432       # Puerto del Service
+    targetPort: 5432 # Puerto al que el contenedor de PostgreSQL escucha
+    name: postgres
