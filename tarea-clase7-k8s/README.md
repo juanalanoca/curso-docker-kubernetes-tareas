@@ -64,10 +64,16 @@ Aquí se incluyen las capturas de pantalla de los pasos clave:
 ![scaling](screenshots/verifica_postgres.png)
 
 
-## Conceptos Kubernetes Aplicados
+## Conceptos Aplicados
 
--   **Deployment:** Gestión declarativa de un conjunto de Pods idénticos.
--   **Service tipo NodePort:** Exposición de la aplicación al exterior a través de un puerto estático en cada nodo del clúster.
--   **Labels y Selectors:** Mecanismo para organizar recursos y permitir que los Services encuentren a los Pods correctos.
--   **Auto-healing:** Kubernetes detecta y reemplaza automáticamente los Pods fallidos para mantener el número deseado de réplicas.
--   **Escalado horizontal:** Capacidad de aumentar o disminuir el número de réplicas de una aplicación para manejar la carga.
+-   **DDescribe cada uno de los pasos que seguiste, similares a los de esta guía.
+-   **Crear namespace: kubectl apply -f k8s/namespace.yaml
+-   **Configurar contexto: kubectl config set-context --current --namespace=tarea-clase7
+-   **Aplicar ConfigMap: kubectl apply -f k8s/configmap.yaml
+-   **Aplicar Secret: kubectl apply -f k8s/secret.yaml (recuerda que para GitHub sería secret.yaml.example)
+-   **Aplicar Headless Service: kubectl apply -f k8s/postgres-headless.yaml
+-   **Aplicar StatefulSet: kubectl apply -f k8s/postgres-statefulset.yaml
+-   **Verificar que todo está corriendo: kubectl get all -n tarea-clase7
+-   **Probar PostgreSQL: Conectarse y crear datos.
+-   **Demostrar persistencia: Eliminar pod y verificar datos.
+
