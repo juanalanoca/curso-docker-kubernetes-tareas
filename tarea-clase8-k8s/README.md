@@ -24,3 +24,33 @@ Es crucial habilitar el controlador de Ingress y el servidor de métricas para q
 ```bash
 minikube addons enable ingress
 minikube addons enable metrics-server
+```
+
+
+## Screenshots
+
+Aquí se incluyen las capturas de pantalla de los pasos realizados en maquina local:
+
+### Verificando componentes 
+![kubectl get all](screenshots/verifica_componentes1.png)
+
+### Verificando componentes 
+![kubectl get all](screenshots/verifica_componentes2.png)
+
+### Probando Ingresos
+![webapp](screenshots/probando_ingresos.png)
+
+### Probando HPA con carga
+![webapp](screenshots/probando_hpa_con_carga.png)
+
+### Comandos de verificación
+![pods detailed](screenshots/comando_verificacion_1.png)
+
+### Comandos de verificación
+![pods detailed](screenshots/comando_verificacion_1.png)
+
+### Muestra de estados HPA
+![scaling](screenshots/ver_Estados_hpa.png)
+
+### Comandos de Limpieza
+![scaling](screenshots/comandos_limpieza.png)
