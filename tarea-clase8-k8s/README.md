@@ -1,5 +1,5 @@
-# tarea-clase8-k8s
-
+# TAREA CLASE 8 tarea-clase8-k8s
+# JUAN CARLOS ALANOCA TICONA
 ## a) Descripción del Proyecto
 
 Este proyecto despliega una aplicación web simple de dos capas en un clúster de Kubernetes, utilizando Nginx como frontend y backend. La configuración incluye conceptos clave de Kubernetes para gestionar el tráfico y el escalado:
